@@ -33,7 +33,7 @@
 		9B3E80661D5B1BFD009719F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9B3E806C1D5B1C61009719F1 /* MyCocoaPodsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsObject.h; sourceTree = "<group>"; };
 		9B3E806D1D5B1C61009719F1 /* MyCocoaPodsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCocoaPodsObject.m; sourceTree = "<group>"; };
-		9B3E806F1D5B1DC3009719F1 /* MyCocoaPodsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsHeader.h; sourceTree = "<group>"; };
+		9B3E80711D5B2143009719F1 /* MyCocoaPodsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,6 @@
 		9B3E804C1D5B1B57009719F1 /* MyTestCocoaPods */ = {
 			isa = PBXGroup;
 			children = (
-				9B3E806F1D5B1DC3009719F1 /* MyCocoaPodsHeader.h */,
 				9B3E806B1D5B1C61009719F1 /* MyObject */,
 				9B3E80501D5B1B57009719F1 /* AppDelegate.h */,
 				9B3E80511D5B1B57009719F1 /* AppDelegate.m */,
@@ -96,10 +95,19 @@
 		9B3E806B1D5B1C61009719F1 /* MyObject */ = {
 			isa = PBXGroup;
 			children = (
+				9B3E80701D5B2143009719F1 /* Header */,
 				9B3E806C1D5B1C61009719F1 /* MyCocoaPodsObject.h */,
 				9B3E806D1D5B1C61009719F1 /* MyCocoaPodsObject.m */,
 			);
 			path = MyObject;
+			sourceTree = "<group>";
+		};
+		9B3E80701D5B2143009719F1 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				9B3E80711D5B2143009719F1 /* MyCocoaPodsHeader.h */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +338,7 @@
 				9B3E80631D5B1B57009719F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
