@@ -9,6 +9,6 @@
 #ifndef MyCocoaPodsHeader_h
 #define MyCocoaPodsHeader_h
 
-#import "../MyCocoaPodsObject.h"
+#import "MyCocoaPodsObject.h"
 
 #endif /* MyCocoaPodsHeader_h */

@@ -15,7 +15,7 @@
 		9B3E805D1D5B1B57009719F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B3E805B1D5B1B57009719F1 /* LaunchScreen.storyboard */; };
 		9B3E80651D5B1BF6009719F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E80641D5B1BF6009719F1 /* UIKit.framework */; };
 		9B3E80671D5B1BFD009719F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E80661D5B1BFD009719F1 /* Foundation.framework */; };
-		9B3E806E1D5B1C61009719F1 /* MyCocoaPodsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3E806D1D5B1C61009719F1 /* MyCocoaPodsObject.m */; };
+		9B3E80761D5B2541009719F1 /* MyCocoaPodsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +31,9 @@
 		9B3E805E1D5B1B57009719F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B3E80641D5B1BF6009719F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9B3E80661D5B1BFD009719F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9B3E806C1D5B1C61009719F1 /* MyCocoaPodsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsObject.h; sourceTree = "<group>"; };
-		9B3E806D1D5B1C61009719F1 /* MyCocoaPodsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCocoaPodsObject.m; sourceTree = "<group>"; };
-		9B3E80711D5B2143009719F1 /* MyCocoaPodsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsHeader.h; sourceTree = "<group>"; };
+		9B3E80721D5B2541009719F1 /* MyCocoaPodsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsHeader.h; sourceTree = "<group>"; };
+		9B3E80741D5B2541009719F1 /* MyCocoaPodsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsObject.h; sourceTree = "<group>"; };
+		9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCocoaPodsObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,19 +95,19 @@
 		9B3E806B1D5B1C61009719F1 /* MyObject */ = {
 			isa = PBXGroup;
 			children = (
-				9B3E80701D5B2143009719F1 /* Header */,
-				9B3E806C1D5B1C61009719F1 /* MyCocoaPodsObject.h */,
-				9B3E806D1D5B1C61009719F1 /* MyCocoaPodsObject.m */,
+				9B3E80721D5B2541009719F1 /* MyCocoaPodsHeader.h */,
+				9B3E80731D5B2541009719F1 /* Object */,
 			);
 			path = MyObject;
 			sourceTree = "<group>";
 		};
-		9B3E80701D5B2143009719F1 /* Header */ = {
+		9B3E80731D5B2541009719F1 /* Object */ = {
 			isa = PBXGroup;
 			children = (
-				9B3E80711D5B2143009719F1 /* MyCocoaPodsHeader.h */,
+				9B3E80741D5B2541009719F1 /* MyCocoaPodsObject.h */,
+				9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */,
 			);
-			path = Header;
+			path = Object;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +182,7 @@
 			files = (
 				9B3E80551D5B1B57009719F1 /* ViewController.m in Sources */,
 				9B3E80521D5B1B57009719F1 /* AppDelegate.m in Sources */,
-				9B3E806E1D5B1C61009719F1 /* MyCocoaPodsObject.m in Sources */,
+				9B3E80761D5B2541009719F1 /* MyCocoaPodsObject.m in Sources */,
 				9B3E804F1D5B1B57009719F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
