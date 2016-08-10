@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.summary      = "play with cocoaPods"
 
   s.description  = <<-DESC
-                      play with cocoaPods 
+                    I play with cocoaPods where this one project
                    DESC
 
   s.homepage     = "https://github.com/sugerGDev/myTestCocoaPods"
