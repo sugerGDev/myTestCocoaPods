@@ -22,7 +22,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "suger" => "gjw_2007@163.com" }
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios
+  s.ios.deployment_target = '8.0'
 
   s.source       = { :git => "https://github.com/sugerGDev/myTestCocoaPods.git", :tag => s.version.to_s }
 
@@ -34,8 +35,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
 
-  s.frameworks = "UIKit", "Foundation"
-
+  s.frameworks = "UIKit", "Foundation”, "Photos"
+  s.resources  = 'MyTestCocoaPods/MyObject/Resources/*.{png,xib,nib,bundle}'
  #s.dependency 'Masonry', '~> 0.6.3'
 
 

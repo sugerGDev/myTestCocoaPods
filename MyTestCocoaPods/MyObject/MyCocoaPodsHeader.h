@@ -10,5 +10,6 @@
 #define MyCocoaPodsHeader_h
 
 #import "MyCocoaPodsObject.h"
+#import "PhotoPickerController.h"
 
 #endif /* MyCocoaPodsHeader_h */

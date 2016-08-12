@@ -22,8 +22,10 @@
  */
 - (NSArray<UIViewController *> *)numsOfPagerSubVContrls;
 @end
+
 /*!
- *  [NKJPagerCtrlContrller] 继承 [NKJPagerViewController] ，实现相关统一接口
+ *  PageContrller 为一个自定义UIPageContrller分装，
+ *  实现多个ViewContrller ,使用NKJPagerViewController修改第三方控件修改
  *
  */
 @interface NKJPagerCtrlContrller : NKJPagerViewController

@@ -16,6 +16,13 @@
 		9B3E80651D5B1BF6009719F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E80641D5B1BF6009719F1 /* UIKit.framework */; };
 		9B3E80671D5B1BFD009719F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E80661D5B1BFD009719F1 /* Foundation.framework */; };
 		9B3E80761D5B2541009719F1 /* MyCocoaPodsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */; };
+		9B3EACE61D5DC2010079AE0E /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3EACE51D5DC2010079AE0E /* Photos.framework */; };
+		9B3EACE91D5DC2130079AE0E /* ZLPhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EACE81D5DC2130079AE0E /* ZLPhotoTool.m */; };
+		9B3EACF51D5DC8630079AE0E /* PhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EACF31D5DC8630079AE0E /* PhotoPickerController.m */; };
+		9B3EACFB1D5DCB740079AE0E /* ZLSelectPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EACFA1D5DCB740079AE0E /* ZLSelectPhotoModel.m */; };
+		9B3EAD001D5DCE0A0079AE0E /* PhotoPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EACFE1D5DCE0A0079AE0E /* PhotoPickerCell.m */; };
+		9B3EAD031D5DCE190079AE0E /* PhotoPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */; };
+		9B3EAD051D5DDC220079AE0E /* PhotoPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */; };
 		9B7AED111D5C147400D574DC /* NKJPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AED101D5C147400D574DC /* NKJPagerViewController.m */; };
 		9B7AED141D5C15C900D574DC /* NKJPagerCtrlContrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AED131D5C15C900D574DC /* NKJPagerCtrlContrller.m */; };
 		9BCAB3E61D5C527D00B978A3 /* PagerSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCAB3E51D5C527D00B978A3 /* PagerSubViewController.m */; };
@@ -38,6 +45,17 @@
 		9B3E80721D5B2541009719F1 /* MyCocoaPodsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsHeader.h; sourceTree = "<group>"; };
 		9B3E80741D5B2541009719F1 /* MyCocoaPodsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsObject.h; sourceTree = "<group>"; };
 		9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCocoaPodsObject.m; sourceTree = "<group>"; };
+		9B3EACE51D5DC2010079AE0E /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		9B3EACE71D5DC2130079AE0E /* ZLPhotoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPhotoTool.h; sourceTree = "<group>"; };
+		9B3EACE81D5DC2130079AE0E /* ZLPhotoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPhotoTool.m; sourceTree = "<group>"; };
+		9B3EACF21D5DC8630079AE0E /* PhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerController.h; sourceTree = "<group>"; };
+		9B3EACF31D5DC8630079AE0E /* PhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerController.m; sourceTree = "<group>"; };
+		9B3EACF91D5DCB740079AE0E /* ZLSelectPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSelectPhotoModel.h; sourceTree = "<group>"; };
+		9B3EACFA1D5DCB740079AE0E /* ZLSelectPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSelectPhotoModel.m; sourceTree = "<group>"; };
+		9B3EACFD1D5DCE0A0079AE0E /* PhotoPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerCell.h; sourceTree = "<group>"; };
+		9B3EACFE1D5DCE0A0079AE0E /* PhotoPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerCell.m; sourceTree = "<group>"; };
+		9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPickerCell.xib; sourceTree = "<group>"; };
+		9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPickerController.xib; sourceTree = "<group>"; };
 		9B7AED0F1D5C147400D574DC /* NKJPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKJPagerViewController.h; sourceTree = "<group>"; };
 		9B7AED101D5C147400D574DC /* NKJPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKJPagerViewController.m; sourceTree = "<group>"; };
 		9B7AED121D5C15C900D574DC /* NKJPagerCtrlContrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKJPagerCtrlContrller.h; sourceTree = "<group>"; };
@@ -53,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B3EACE61D5DC2010079AE0E /* Photos.framework in Frameworks */,
 				9B3E80671D5B1BFD009719F1 /* Foundation.framework in Frameworks */,
 				9B3E80651D5B1BF6009719F1 /* UIKit.framework in Frameworks */,
 			);
@@ -64,6 +83,7 @@
 		9B3E80411D5B1B57009719F1 = {
 			isa = PBXGroup;
 			children = (
+				9B3EACE51D5DC2010079AE0E /* Photos.framework */,
 				9B3E80661D5B1BFD009719F1 /* Foundation.framework */,
 				9B3E80641D5B1BF6009719F1 /* UIKit.framework */,
 				9B3E804C1D5B1B57009719F1 /* MyTestCocoaPods */,
@@ -109,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				9B3E80721D5B2541009719F1 /* MyCocoaPodsHeader.h */,
+				9B3EACEA1D5DC4240079AE0E /* Resources */,
+				9B3EACE41D5DBF320079AE0E /* PhotoPickerContrller */,
 				9B7AED0E1D5C147400D574DC /* PageContrller */,
 				9B3E80731D5B2541009719F1 /* Object */,
 			);
@@ -122,6 +144,38 @@
 				9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */,
 			);
 			path = Object;
+			sourceTree = "<group>";
+		};
+		9B3EACE41D5DBF320079AE0E /* PhotoPickerContrller */ = {
+			isa = PBXGroup;
+			children = (
+				9B3EACFC1D5DCB7A0079AE0E /* ThildPart */,
+				9B3EACF21D5DC8630079AE0E /* PhotoPickerController.h */,
+				9B3EACF31D5DC8630079AE0E /* PhotoPickerController.m */,
+				9B3EACFD1D5DCE0A0079AE0E /* PhotoPickerCell.h */,
+				9B3EACFE1D5DCE0A0079AE0E /* PhotoPickerCell.m */,
+			);
+			path = PhotoPickerContrller;
+			sourceTree = "<group>";
+		};
+		9B3EACEA1D5DC4240079AE0E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */,
+				9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9B3EACFC1D5DCB7A0079AE0E /* ThildPart */ = {
+			isa = PBXGroup;
+			children = (
+				9B3EACF91D5DCB740079AE0E /* ZLSelectPhotoModel.h */,
+				9B3EACFA1D5DCB740079AE0E /* ZLSelectPhotoModel.m */,
+				9B3EACE71D5DC2130079AE0E /* ZLPhotoTool.h */,
+				9B3EACE81D5DC2130079AE0E /* ZLPhotoTool.m */,
+			);
+			name = ThildPart;
 			sourceTree = "<group>";
 		};
 		9B7AED0E1D5C147400D574DC /* PageContrller */ = {
@@ -205,7 +259,9 @@
 			files = (
 				9B3E805D1D5B1B57009719F1 /* LaunchScreen.storyboard in Resources */,
 				9B3E805A1D5B1B57009719F1 /* Assets.xcassets in Resources */,
+				9B3EAD031D5DCE190079AE0E /* PhotoPickerCell.xib in Resources */,
 				9B3E80581D5B1B57009719F1 /* Main.storyboard in Resources */,
+				9B3EAD051D5DDC220079AE0E /* PhotoPickerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,9 +276,13 @@
 				9B3E80551D5B1B57009719F1 /* ViewController.m in Sources */,
 				9B7AED141D5C15C900D574DC /* NKJPagerCtrlContrller.m in Sources */,
 				9B3E80521D5B1B57009719F1 /* AppDelegate.m in Sources */,
+				9B3EACF51D5DC8630079AE0E /* PhotoPickerController.m in Sources */,
 				9BCAB3E61D5C527D00B978A3 /* PagerSubViewController.m in Sources */,
 				9B3E80761D5B2541009719F1 /* MyCocoaPodsObject.m in Sources */,
+				9B3EACFB1D5DCB740079AE0E /* ZLSelectPhotoModel.m in Sources */,
+				9B3EAD001D5DCE0A0079AE0E /* PhotoPickerCell.m in Sources */,
 				9BCAB3E91D5C53D300B978A3 /* PagerViewController.m in Sources */,
+				9B3EACE91D5DC2130079AE0E /* ZLPhotoTool.m in Sources */,
 				9B3E804F1D5B1B57009719F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
