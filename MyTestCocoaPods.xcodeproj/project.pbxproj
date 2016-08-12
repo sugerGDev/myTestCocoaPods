@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9B3E804F1D5B1B57009719F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3E804E1D5B1B57009719F1 /* main.m */; };
 		9B3E80521D5B1B57009719F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3E80511D5B1B57009719F1 /* AppDelegate.m */; };
-		9B3E80551D5B1B57009719F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3E80541D5B1B57009719F1 /* ViewController.m */; };
 		9B3E80581D5B1B57009719F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B3E80561D5B1B57009719F1 /* Main.storyboard */; };
 		9B3E805A1D5B1B57009719F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B3E80591D5B1B57009719F1 /* Assets.xcassets */; };
 		9B3E805D1D5B1B57009719F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B3E805B1D5B1B57009719F1 /* LaunchScreen.storyboard */; };
@@ -25,6 +24,7 @@
 		9B3EAD051D5DDC220079AE0E /* PhotoPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */; };
 		9B7AED111D5C147400D574DC /* NKJPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AED101D5C147400D574DC /* NKJPagerViewController.m */; };
 		9B7AED141D5C15C900D574DC /* NKJPagerCtrlContrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AED131D5C15C900D574DC /* NKJPagerCtrlContrller.m */; };
+		9B93409E1D5E07AC0039628D /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B93409D1D5E07AC0039628D /* MainTableViewController.m */; };
 		9BCAB3E61D5C527D00B978A3 /* PagerSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCAB3E51D5C527D00B978A3 /* PagerSubViewController.m */; };
 		9BCAB3E91D5C53D300B978A3 /* PagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCAB3E81D5C53D300B978A3 /* PagerViewController.m */; };
 /* End PBXBuildFile section */
@@ -34,8 +34,6 @@
 		9B3E804E1D5B1B57009719F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B3E80501D5B1B57009719F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B3E80511D5B1B57009719F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9B3E80531D5B1B57009719F1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9B3E80541D5B1B57009719F1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9B3E80571D5B1B57009719F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B3E80591D5B1B57009719F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B3E805C1D5B1B57009719F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +58,8 @@
 		9B7AED101D5C147400D574DC /* NKJPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKJPagerViewController.m; sourceTree = "<group>"; };
 		9B7AED121D5C15C900D574DC /* NKJPagerCtrlContrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKJPagerCtrlContrller.h; sourceTree = "<group>"; };
 		9B7AED131D5C15C900D574DC /* NKJPagerCtrlContrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKJPagerCtrlContrller.m; sourceTree = "<group>"; };
+		9B93409C1D5E07AC0039628D /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		9B93409D1D5E07AC0039628D /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		9BCAB3E41D5C527D00B978A3 /* PagerSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerSubViewController.h; sourceTree = "<group>"; };
 		9BCAB3E51D5C527D00B978A3 /* PagerSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerSubViewController.m; sourceTree = "<group>"; };
 		9BCAB3E71D5C53D300B978A3 /* PagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerViewController.h; sourceTree = "<group>"; };
@@ -105,14 +105,15 @@
 				9B3E806B1D5B1C61009719F1 /* MyObject */,
 				9B3E80501D5B1B57009719F1 /* AppDelegate.h */,
 				9B3E80511D5B1B57009719F1 /* AppDelegate.m */,
-				9B3E80531D5B1B57009719F1 /* ViewController.h */,
-				9B3E80541D5B1B57009719F1 /* ViewController.m */,
 				9B3E80561D5B1B57009719F1 /* Main.storyboard */,
 				9B3E80591D5B1B57009719F1 /* Assets.xcassets */,
 				9B3E805B1D5B1B57009719F1 /* LaunchScreen.storyboard */,
 				9B3E805E1D5B1B57009719F1 /* Info.plist */,
+				9B93409B1D5E07790039628D /* PhotoPickerContrllers */,
 				9BCAB3E01D5C523E00B978A3 /* PagerViewControllers */,
 				9B3E804D1D5B1B57009719F1 /* Supporting Files */,
+				9B93409C1D5E07AC0039628D /* MainTableViewController.h */,
+				9B93409D1D5E07AC0039628D /* MainTableViewController.m */,
 			);
 			path = MyTestCocoaPods;
 			sourceTree = "<group>";
@@ -187,6 +188,13 @@
 				9B7AED131D5C15C900D574DC /* NKJPagerCtrlContrller.m */,
 			);
 			path = PageContrller;
+			sourceTree = "<group>";
+		};
+		9B93409B1D5E07790039628D /* PhotoPickerContrllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhotoPickerContrllers;
 			sourceTree = "<group>";
 		};
 		9BCAB3E01D5C523E00B978A3 /* PagerViewControllers */ = {
@@ -273,7 +281,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B7AED111D5C147400D574DC /* NKJPagerViewController.m in Sources */,
-				9B3E80551D5B1B57009719F1 /* ViewController.m in Sources */,
 				9B7AED141D5C15C900D574DC /* NKJPagerCtrlContrller.m in Sources */,
 				9B3E80521D5B1B57009719F1 /* AppDelegate.m in Sources */,
 				9B3EACF51D5DC8630079AE0E /* PhotoPickerController.m in Sources */,
@@ -281,6 +288,7 @@
 				9B3E80761D5B2541009719F1 /* MyCocoaPodsObject.m in Sources */,
 				9B3EACFB1D5DCB740079AE0E /* ZLSelectPhotoModel.m in Sources */,
 				9B3EAD001D5DCE0A0079AE0E /* PhotoPickerCell.m in Sources */,
+				9B93409E1D5E07AC0039628D /* MainTableViewController.m in Sources */,
 				9BCAB3E91D5C53D300B978A3 /* PagerViewController.m in Sources */,
 				9B3EACE91D5DC2130079AE0E /* ZLPhotoTool.m in Sources */,
 				9B3E804F1D5B1B57009719F1 /* main.m in Sources */,

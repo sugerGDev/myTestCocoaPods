@@ -21,7 +21,7 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
         self.minimumInteritemSpacing = 1;
         self.minimumLineSpacing = 1;
         
-//        self.headerReferenceSize = CGSizeMake(kw, 64);
+        self.headerReferenceSize = CGSizeMake(kw, 2);
         self.footerReferenceSize = CGSizeMake(kw, 64);
         
         
