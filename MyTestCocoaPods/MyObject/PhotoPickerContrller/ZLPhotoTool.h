@@ -68,5 +68,19 @@
  * @brief 判断图片是否存储在本地/或者已经从iCloud上下载到本地
  */
 - (BOOL)judgeAssetisInLocalAblum:(PHAsset *)asset ;
+/*!
+ *  判断是否有访问这个相册权限
+ *
+ *  @return <#return value description#>
+ */
+
+- (BOOL)judgeIsHavePhotoAblumAuthority;
+
+/*!
+ *  判断是否判断有访问摄像头权限
+ *
+ *  @return <#return value description#>
+ */
+- (BOOL)judgeIsHaveCameraAuthority;
 
 @end

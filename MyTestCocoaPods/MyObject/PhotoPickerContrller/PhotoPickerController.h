@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "ZLPhotoTool.h"
 #import "PhotoPickerCell.h"
@@ -26,14 +27,24 @@ UIKIT_EXTERN NSString * const reuseIdentifier;
 
 
 @interface PhotoPickerController : UICollectionViewController
-<PHPhotoLibraryChangeObserver>{
-    NSMutableArray* _dataSourceArray;
-}
-
+/*!
+ *  最大选择照片数
+ */
+@property (nonatomic , assign) NSInteger maxPickAssetNumber;
 @end
 /*!
  *  图片挑选UI(CollectionView)
  */
-@interface PhotoPickerController (CV)
+@interface PhotoPickerController (CV)@end
+
+/*!
+ *  PhotoPickerCellDelegate
+ */
+@interface PhotoPickerController (PPCD)@end
+
+
+@interface PhotoPickerController (TP)
+- (UIImage *)createTakePhotoImage;
+- (void)doTakePhotoAction ;
 
 @end

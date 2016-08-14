@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
 
-  s.frameworks = "UIKit", "Foundation”, "Photos"
+  s.frameworks = "UIKit", "Foundation","Photos","QuartzCore"
   s.resources  = 'MyTestCocoaPods/MyObject/Resources/*.{png,xib,nib,bundle}'
  #s.dependency 'Masonry', '~> 0.6.3'
 

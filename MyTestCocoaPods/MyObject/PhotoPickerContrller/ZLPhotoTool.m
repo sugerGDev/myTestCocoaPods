@@ -7,7 +7,6 @@
 //
 
 #import "ZLPhotoTool.h"
-#import "ZLSelectPhotoModel.h"
 
 #define CollectionName [[NSBundle mainBundle].infoDictionary valueForKey:(__bridge NSString *)kCFBundleNameKey]
 
@@ -251,8 +250,13 @@ static ZLPhotoTool *sharePhotoTool = nil;
     
     __weak typeof(self) weakSelf = self;
     for (int i = 0; i < photos.count; i++) {
-        ZLSelectPhotoModel *model = photos[i];
-        [[PHCachingImageManager defaultManager] requestImageDataForAsset:model.asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        PHAsset *model = photos[i];
+       PHImageManager* cache = [PHCachingImageManager defaultManager] ;
+        
+        [cache requestImageDataForAsset:model
+                                options:nil
+                          resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+                              
             __strong typeof(weakSelf) strongSelf = weakSelf;
             dataLength += imageData.length;
             count--;
@@ -291,4 +295,26 @@ static ZLPhotoTool *sharePhotoTool = nil;
     return isInLocalAblum;
 }
 
+
+
+#pragma mark - 判断软件是否有相册、相机访问权限
+- (BOOL)judgeIsHavePhotoAblumAuthority
+{
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusRestricted ||
+        status == PHAuthorizationStatusDenied) {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)judgeIsHaveCameraAuthority
+{
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (status == AVAuthorizationStatusRestricted ||
+        status == AVAuthorizationStatusDenied) {
+        return NO;
+    }
+    return YES;
+}
 @end

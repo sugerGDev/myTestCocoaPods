@@ -10,9 +10,40 @@
 #import <Photos/Photos.h>
 #import "ZLPhotoTool.h"
 
-@interface PhotoPickerCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imgProfile;
-@property (weak, nonatomic) IBOutlet UIButton *btnSelected;
-@property (weak, nonatomic) PHAsset* asset;
+@class PhotoPickerButton;
+@class PhotoPickerCell;
+
+@protocol PhotoPickerCellDelegate <NSObject>
+
+- (BOOL)isAllowPickTheCell:(__weak PhotoPickerCell*)aCell;
+- (BOOL)isFinishPickTheCell:(__weak PhotoPickerCell*)aCell;
 
 @end
+
+/*!
+ *  相册Cell
+ */
+@interface PhotoPickerCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imgProfile;
+@property (weak, nonatomic) IBOutlet PhotoPickerButton *btnSelected;
+
+
+@property (nonatomic , weak) PHAsset* asset;
+@property (nonatomic , weak) id<PhotoPickerCellDelegate> ppcDelegate;
+@end
+
+
+
+
+
+/*!
+ *  相册点击Button
+ */
+@interface PhotoPickerButton : UIButton
+@property (nonatomic , assign) BOOL isPicked;
+
+- (void)playSelectedAnimation;
+
+@end
+
+

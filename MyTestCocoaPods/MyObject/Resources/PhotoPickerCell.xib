@@ -16,28 +16,39 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rLQ-XH-SmC">
                         <rect key="frame" x="0.0" y="0.0" width="143" height="152"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCo-Xb-umw">
-                        <rect key="frame" x="105" y="8" width="30" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AN7-iM-AsO" customClass="PhotoPickerButton">
+                        <rect key="frame" x="103" y="0.0" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="LkU-Pu-adn"/>
-                            <constraint firstAttribute="height" constant="30" id="oe1-Hf-VzC"/>
+                            <constraint firstAttribute="width" constant="40" id="2qM-5j-Nuk"/>
+                            <constraint firstAttribute="height" constant="40" id="b5p-Mq-YkZ"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <inset key="imageEdgeInsets" minX="10" minY="-10" maxX="0.0" maxY="0.0"/>
+                        <state key="normal">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="doTapSelectedAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Nz8-vD-Bc2"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="AN7-iM-AsO" secondAttribute="trailing" id="N5E-Fv-EQg"/>
                 <constraint firstItem="rLQ-XH-SmC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NwO-Fx-3AQ"/>
-                <constraint firstAttribute="trailing" secondItem="QCo-Xb-umw" secondAttribute="trailing" constant="8" id="QZq-9f-l7g"/>
+                <constraint firstItem="AN7-iM-AsO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="O5E-4F-iBY"/>
                 <constraint firstAttribute="bottom" secondItem="rLQ-XH-SmC" secondAttribute="bottom" id="dFa-qE-Frs"/>
                 <constraint firstAttribute="trailing" secondItem="rLQ-XH-SmC" secondAttribute="trailing" id="ejS-be-Mve"/>
-                <constraint firstItem="QCo-Xb-umw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="fIr-fj-AvR"/>
                 <constraint firstItem="rLQ-XH-SmC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xGq-6F-eqn"/>
             </constraints>
             <size key="customSize" width="143" height="152"/>
             <connections>
-                <outlet property="btnSelected" destination="QCo-Xb-umw" id="m3j-TK-wmh"/>
+                <outlet property="btnSelected" destination="AN7-iM-AsO" id="F8C-r7-hPH"/>
                 <outlet property="imgProfile" destination="rLQ-XH-SmC" id="Esn-8j-pPZ"/>
             </connections>
             <point key="canvasLocation" x="394.5" y="393"/>
