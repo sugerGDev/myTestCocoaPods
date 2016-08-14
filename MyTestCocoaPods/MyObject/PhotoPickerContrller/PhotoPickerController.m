@@ -21,9 +21,6 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
         self.minimumInteritemSpacing = 1;
         self.minimumLineSpacing = 1;
         
-        self.headerReferenceSize = CGSizeMake(kw, 2);
-        self.footerReferenceSize = CGSizeMake(kw, 64);
-        
         
     }
     return self;
@@ -47,32 +44,41 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     //defualt number
     self.maxPickAssetNumber = 10;
+    self.collectionView.contentInset = UIEdgeInsetsMake(2, 0, 52, 0);
     
-    //don't not block in main thread
-    dispatch_async(dispatch_get_main_queue(), ^{
-        // register photoChanged Observer
-        [self registePhotoLibraryChangedObserver];
-        
-        // register cell classes
-        NSBundle* b = [NSBundle bundleForClass:[self class]];
-        UINib* nib = [UINib nibWithNibName:reuseIdentifier bundle:b];
-        [self.collectionView registerNib:nib forCellWithReuseIdentifier:reuseIdentifier];
-        
-        //load photoAlbum
-        [self loadPhotoFromAlbum];
-        
-    });
+    // register photoChanged Observer
+    [self registePhotoLibraryChangedObserver];
     
-
-    // Do any additional setup after loading the view.
+    //create bottom View
+    [self createBottomView];
+    //buid Collection
+    [self buildCollectView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)buildCollectView {
+    
+    //create
+    dispatch_queue_t queue =
+    dispatch_queue_create("buildingCollectView.PhotoPickerController.queue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_group_t group = dispatch_group_create();
+    
+    //group
+    dispatch_group_async(group, queue, ^(){
+        // register cell classes for collectionView
+        [self regstCells];
+    });
+    dispatch_group_async(group, queue, ^(){
+        //load photoAlbum for collectionView
+        [self loadPhotoFromAlbum];
+    });
+    
+    //notify
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^(){
+        [self.collectionView reloadData];
+    });
 }
 
 
@@ -102,41 +108,39 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
 //相册变化回调
 - (void)photoLibraryDidChange:(PHChange *)changeInstance{
     
-    [self loadPhotoFromAlbum];
-}
-
-
-- (void)loadPhotoFromAlbum {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        [self.dataSourceArray removeAllObjects];
-        //插入第一张拍照
-        [self.dataSourceArray addObject:[self createTakePhotoImage]];
-        
-        NSArray* arr = [[ZLPhotoTool sharePhotoTool] getAllAssetInPhotoAblumWithAscending:NO];
-        [self.dataSourceArray addObjectsFromArray:arr];
+        [self loadPhotoFromAlbum];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.collectionView reloadData];
         });
     });
-    
 }
-
 
 @end
 
 @implementation PhotoPickerController (CV)
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
+- (void)loadPhotoFromAlbum {
+    
+    [self.dataSourceArray removeAllObjects];
+    //插入第一张拍照
+    [self.dataSourceArray addObject:[self createTakePhotoImage]];
+    
+    NSArray* arr = [[ZLPhotoTool sharePhotoTool] getAllAssetInPhotoAblumWithAscending:NO];
+    [self.dataSourceArray addObjectsFromArray:arr];
+    
+}
+
+- (void)regstCells {
+    
+    NSBundle* b = [NSBundle bundleForClass:[self class]];
+    UINib* nib = [UINib nibWithNibName:reuseIdentifier bundle:b];
+    
+    [self.collectionView registerNib:nib
+          forCellWithReuseIdentifier:reuseIdentifier];
+}
 #pragma mark <UICollectionViewDataSource>
 
 
@@ -174,9 +178,6 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
             [cell.btnSelected setIsPicked:NO];
         }
     }
-
-
- 
     
     return cell;
 }
@@ -189,41 +190,14 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
     }
 }
 
-/*
- // Uncomment this method to specify if the specified item should be highlighted during tracking
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
- return YES;
- }
- */
-
-/*
- // Uncomment this method to specify if the specified item should be selected
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
- return YES;
- }
- */
-
-/*
- // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
- return NO;
- }
- 
- - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
- return NO;
- }
- 
- - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
- 
- }
- */
 @end
 
 
 @implementation PhotoPickerController(PPCD)
 
 - (BOOL)isAllowPickTheCell:(__weak PhotoPickerCell *)aCell {
-    if (self.pickedAssetDict.count >= self.maxPickAssetNumber) {
+    if (self.pickedAssetDict.count >= self.maxPickAssetNumber
+        && aCell.btnSelected.isPicked == NO) {
         NSLog(@"已经超过当前的限制选择数量,不予操作");
         return NO;
     }
@@ -236,10 +210,13 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
     
     if (NO == aCell.btnSelected.isPicked) { //添加图片到选中数组
         [self.pickedAssetDict setObject:asset forKey:asset.localIdentifier];
-   
+        
     } else { //移除图片
         [self.pickedAssetDict removeObjectForKey:asset.localIdentifier];
     }
+    
+    //统计图片数量
+    [self cntPickNumByCellTapAction];
     
     return YES;
 }
@@ -255,6 +232,7 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
 }
 
 - (void)doTakePhotoAction {
+    
     ZLPhotoTool* tool = [ZLPhotoTool sharePhotoTool];
     BOOL isAuthority = [tool judgeIsHaveCameraAuthority];
     
@@ -284,22 +262,21 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
     __weak typeof(self) wself = self;
     [picker dismissViewControllerAnimated:YES completion:^{
-     
-       
-            UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-            UIImage *reImg = [wself scaleImage:image];
         
-            [[ZLPhotoTool sharePhotoTool] saveImageToAblum:reImg completion:^(BOOL suc, PHAsset *asset) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (suc) {
-                        [self.pickedAssetDict setObject:asset forKey:asset.localIdentifier];
-                        
-                    } else {
-                        NSLog(@"保存到相册失败");
-                    }
-                });
-            }];
-    
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        UIImage *reImg = [wself scaleImage:image];
+        
+        [[ZLPhotoTool sharePhotoTool] saveImageToAblum:reImg completion:^(BOOL suc, PHAsset *asset) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (suc) {
+                    [self.pickedAssetDict setObject:asset forKey:asset.localIdentifier];
+                    
+                } else {
+                    NSLog(@"保存到相册失败");
+                }
+            });
+        }];
+        
     }];
 }
 
@@ -307,8 +284,8 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
 /**
  * @brief 这里对拿到的图片进行缩放，不然原图直接返回的话会造成内存暴涨
  */
-- (UIImage *)scaleImage:(UIImage *)image
-{
+- (UIImage *)scaleImage:(UIImage *)image{
+    
     CGFloat ScalePhotoWidth = 1000;
     CGSize size = CGSizeMake(ScalePhotoWidth, ScalePhotoWidth * image.size.height / image.size.width);
     UIGraphicsBeginImageContext(size);
@@ -316,6 +293,35 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
+}
+
+@end
+
+@implementation PhotoPickerController (BV)
+
+- (void )createBottomView {
+    
+    CGSize ks = [UIScreen mainScreen].bounds.size;
+    
+    NSString* s = NSStringFromClass([PhotoPickerBottomView class]);
+    NSBundle* b = [NSBundle bundleForClass:[self class]];
+    _bottomView = [b loadNibNamed:s owner:self options:nil][0];
+    _bottomView.frame = CGRectMake(0, ks.height - 50, ks.width, 35);
+    
+    [self.view addSubview:_bottomView];
+    [self cntPickNumByCellTapAction];
+    
+    
+}
+
+- (void)cntPickNumByCellTapAction {
+    
+    //bind data
+    NSInteger curNum = [self.pickedAssetDict allKeys].count;
+    NSInteger cntNum = self.maxPickAssetNumber;
+    
+    _bottomView.countLbl.text =
+    [NSString stringWithFormat:@"%ld／%ld",curNum,cntNum];
 }
 
 @end

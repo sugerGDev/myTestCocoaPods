@@ -12,6 +12,7 @@
 
 #import "ZLPhotoTool.h"
 #import "PhotoPickerCell.h"
+#import "PhotoPickerBottomView.h"
 //cell identifier
 UIKIT_EXTERN NSString * const reuseIdentifier;
 /*!
@@ -26,7 +27,10 @@ UIKIT_EXTERN NSString * const reuseIdentifier;
  */
 
 
-@interface PhotoPickerController : UICollectionViewController
+@interface PhotoPickerController : UICollectionViewController {
+    //底部控制视图
+    PhotoPickerBottomView* _bottomView;
+}
 /*!
  *  最大选择照片数
  */
@@ -35,16 +39,29 @@ UIKIT_EXTERN NSString * const reuseIdentifier;
 /*!
  *  图片挑选UI(CollectionView)
  */
-@interface PhotoPickerController (CV)@end
+@interface PhotoPickerController (CV)
+- (void)regstCells;
+- (void)loadPhotoFromAlbum;
+@end
 
 /*!
  *  PhotoPickerCellDelegate
  */
 @interface PhotoPickerController (PPCD)@end
 
-
+/*!
+ *  TakePhoto
+ */
 @interface PhotoPickerController (TP)
 - (UIImage *)createTakePhotoImage;
 - (void)doTakePhotoAction ;
-
 @end
+/*!
+ *  Bottom View
+ */
+@interface PhotoPickerController (BV)
+- (void)createBottomView;
+- (void)cntPickNumByCellTapAction;
+@end
+
+

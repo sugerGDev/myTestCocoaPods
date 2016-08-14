@@ -22,6 +22,8 @@
 		9B3EAD031D5DCE190079AE0E /* PhotoPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */; };
 		9B3EAD051D5DDC220079AE0E /* PhotoPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */; };
 		9B5CB6811D600F430035640A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5CB6801D600F430035640A /* QuartzCore.framework */; };
+		9B60316C1D60468B0016C7C3 /* PhotoPickerBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B60316B1D60468B0016C7C3 /* PhotoPickerBottomView.m */; };
+		9B60316E1D6046970016C7C3 /* PhotoPickerBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B60316D1D6046970016C7C3 /* PhotoPickerBottomView.xib */; };
 		9B7AED111D5C147400D574DC /* NKJPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AED101D5C147400D574DC /* NKJPagerViewController.m */; };
 		9B7AED141D5C15C900D574DC /* NKJPagerCtrlContrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AED131D5C15C900D574DC /* NKJPagerCtrlContrller.m */; };
 		9B833D1E1D5FF6EE0002079B /* PhotoAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B833D1D1D5FF6EE0002079B /* PhotoAsset.xcassets */; };
@@ -54,6 +56,9 @@
 		9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPickerCell.xib; sourceTree = "<group>"; };
 		9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPickerController.xib; sourceTree = "<group>"; };
 		9B5CB6801D600F430035640A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9B60316A1D60468B0016C7C3 /* PhotoPickerBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerBottomView.h; sourceTree = "<group>"; };
+		9B60316B1D60468B0016C7C3 /* PhotoPickerBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerBottomView.m; sourceTree = "<group>"; };
+		9B60316D1D6046970016C7C3 /* PhotoPickerBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPickerBottomView.xib; sourceTree = "<group>"; };
 		9B7AED0F1D5C147400D574DC /* NKJPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKJPagerViewController.h; sourceTree = "<group>"; };
 		9B7AED101D5C147400D574DC /* NKJPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKJPagerViewController.m; sourceTree = "<group>"; };
 		9B7AED121D5C15C900D574DC /* NKJPagerCtrlContrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKJPagerCtrlContrller.h; sourceTree = "<group>"; };
@@ -158,6 +163,8 @@
 				9B3EACF31D5DC8630079AE0E /* PhotoPickerController.m */,
 				9B3EACFD1D5DCE0A0079AE0E /* PhotoPickerCell.h */,
 				9B3EACFE1D5DCE0A0079AE0E /* PhotoPickerCell.m */,
+				9B60316A1D60468B0016C7C3 /* PhotoPickerBottomView.h */,
+				9B60316B1D60468B0016C7C3 /* PhotoPickerBottomView.m */,
 			);
 			path = PhotoPickerContrller;
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 				9B833D1D1D5FF6EE0002079B /* PhotoAsset.xcassets */,
 				9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */,
 				9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */,
+				9B60316D1D6046970016C7C3 /* PhotoPickerBottomView.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				9B3EAD031D5DCE190079AE0E /* PhotoPickerCell.xib in Resources */,
 				9B833D1E1D5FF6EE0002079B /* PhotoAsset.xcassets in Resources */,
 				9B3E80581D5B1B57009719F1 /* Main.storyboard in Resources */,
+				9B60316E1D6046970016C7C3 /* PhotoPickerBottomView.xib in Resources */,
 				9B3EAD051D5DDC220079AE0E /* PhotoPickerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +299,7 @@
 				9B3EACF51D5DC8630079AE0E /* PhotoPickerController.m in Sources */,
 				9BCAB3E61D5C527D00B978A3 /* PagerSubViewController.m in Sources */,
 				9B3E80761D5B2541009719F1 /* MyCocoaPodsObject.m in Sources */,
+				9B60316C1D60468B0016C7C3 /* PhotoPickerBottomView.m in Sources */,
 				9B3EAD001D5DCE0A0079AE0E /* PhotoPickerCell.m in Sources */,
 				9B93409E1D5E07AC0039628D /* MainTableViewController.m in Sources */,
 				9BCAB3E91D5C53D300B978A3 /* PagerViewController.m in Sources */,
