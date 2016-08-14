@@ -301,16 +301,17 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
 
 - (void )createBottomView {
     
-    CGSize ks = [UIScreen mainScreen].bounds.size;
-    
     NSString* s = NSStringFromClass([PhotoPickerBottomView class]);
     NSBundle* b = [NSBundle bundleForClass:[self class]];
     _bottomView = [b loadNibNamed:s owner:self options:nil][0];
-    _bottomView.frame = CGRectMake(0, ks.height - 50, ks.width, 35);
     
     [self.view addSubview:_bottomView];
     [self cntPickNumByCellTapAction];
     
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.mas_equalTo(@40);
+    }];
     
 }
 

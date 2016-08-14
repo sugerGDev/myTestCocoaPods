@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import <QuartzCore/QuartzCore.h>
+#import <Masonry/Masonry.h>
 
 #import "ZLPhotoTool.h"
 #import "PhotoPickerCell.h"
