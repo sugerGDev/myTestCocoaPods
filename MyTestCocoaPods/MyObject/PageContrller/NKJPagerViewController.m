@@ -52,6 +52,15 @@
     return self;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self defaultSettings];
+    }
+    return self;
+    
+}
+
 - (void)defaultSettings
 {
     _indexPath = 0;

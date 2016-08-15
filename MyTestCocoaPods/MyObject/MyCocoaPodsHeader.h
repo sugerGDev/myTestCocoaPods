@@ -9,7 +9,7 @@
 #ifndef MyCocoaPodsHeader_h
 #define MyCocoaPodsHeader_h
 
-#import "MyCocoaPodsObject.h"
+#import "NKJPagerCtrlContrller.h"
 #import "PhotoPickerController.h"
 
 #endif /* MyCocoaPodsHeader_h */
