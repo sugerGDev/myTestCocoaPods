@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
 
 
   s.frameworks = "UIKit", "Foundation","Photos","QuartzCore"
-  s.resources  = 'MyTestCocoaPods/MyObject/Resources/*.{png,xib,nib,bundle}'
+  s.resources  = 'MyTestCocoaPods/MyObject/Resources/*.{png,xib,nib,bundle,xcassets}'
   s.dependency 'Masonry'
 
 
