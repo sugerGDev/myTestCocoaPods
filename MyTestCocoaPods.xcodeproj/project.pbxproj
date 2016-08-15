@@ -15,7 +15,6 @@
 		9B3E805D1D5B1B57009719F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B3E805B1D5B1B57009719F1 /* LaunchScreen.storyboard */; };
 		9B3E80651D5B1BF6009719F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E80641D5B1BF6009719F1 /* UIKit.framework */; };
 		9B3E80671D5B1BFD009719F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E80661D5B1BFD009719F1 /* Foundation.framework */; };
-		9B3E80761D5B2541009719F1 /* MyCocoaPodsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */; };
 		9B3EACE61D5DC2010079AE0E /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3EACE51D5DC2010079AE0E /* Photos.framework */; };
 		9B3EACE91D5DC2130079AE0E /* ZLPhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EACE81D5DC2130079AE0E /* ZLPhotoTool.m */; };
 		9B3EACF51D5DC8630079AE0E /* PhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EACF31D5DC8630079AE0E /* PhotoPickerController.m */; };
@@ -46,8 +45,6 @@
 		9B3E80641D5B1BF6009719F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9B3E80661D5B1BFD009719F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9B3E80721D5B2541009719F1 /* MyCocoaPodsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsHeader.h; sourceTree = "<group>"; };
-		9B3E80741D5B2541009719F1 /* MyCocoaPodsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCocoaPodsObject.h; sourceTree = "<group>"; };
-		9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCocoaPodsObject.m; sourceTree = "<group>"; };
 		9B3EACE51D5DC2010079AE0E /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		9B3EACE71D5DC2130079AE0E /* ZLPhotoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPhotoTool.h; sourceTree = "<group>"; };
 		9B3EACE81D5DC2130079AE0E /* ZLPhotoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPhotoTool.m; sourceTree = "<group>"; };
@@ -133,7 +130,6 @@
 				9B3E80591D5B1B57009719F1 /* Assets.xcassets */,
 				9B3E805B1D5B1B57009719F1 /* LaunchScreen.storyboard */,
 				9B3E805E1D5B1B57009719F1 /* Info.plist */,
-				9B93409B1D5E07790039628D /* PhotoPickerContrllers */,
 				9BCAB3E01D5C523E00B978A3 /* PagerViewControllers */,
 				9B3E804D1D5B1B57009719F1 /* Supporting Files */,
 				9B93409C1D5E07AC0039628D /* MainTableViewController.h */,
@@ -159,16 +155,6 @@
 				9B7AED0E1D5C147400D574DC /* PageContrller */,
 			);
 			path = MyObject;
-			sourceTree = "<group>";
-		};
-		9B3E80731D5B2541009719F1 /* Object */ = {
-			isa = PBXGroup;
-			children = (
-				9B3E80741D5B2541009719F1 /* MyCocoaPodsObject.h */,
-				9B3E80751D5B2541009719F1 /* MyCocoaPodsObject.m */,
-			);
-			name = Object;
-			path = ../Object;
 			sourceTree = "<group>";
 		};
 		9B3EACE41D5DBF320079AE0E /* PhotoPickerContrller */ = {
@@ -208,20 +194,12 @@
 		9B7AED0E1D5C147400D574DC /* PageContrller */ = {
 			isa = PBXGroup;
 			children = (
-				9B3E80731D5B2541009719F1 /* Object */,
 				9B7AED0F1D5C147400D574DC /* NKJPagerViewController.h */,
 				9B7AED101D5C147400D574DC /* NKJPagerViewController.m */,
 				9B7AED121D5C15C900D574DC /* NKJPagerCtrlContrller.h */,
 				9B7AED131D5C15C900D574DC /* NKJPagerCtrlContrller.m */,
 			);
 			path = PageContrller;
-			sourceTree = "<group>";
-		};
-		9B93409B1D5E07790039628D /* PhotoPickerContrllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PhotoPickerContrllers;
 			sourceTree = "<group>";
 		};
 		9BCAB3E01D5C523E00B978A3 /* PagerViewControllers */ = {
@@ -373,7 +351,6 @@
 				9B3E80521D5B1B57009719F1 /* AppDelegate.m in Sources */,
 				9B3EACF51D5DC8630079AE0E /* PhotoPickerController.m in Sources */,
 				9BCAB3E61D5C527D00B978A3 /* PagerSubViewController.m in Sources */,
-				9B3E80761D5B2541009719F1 /* MyCocoaPodsObject.m in Sources */,
 				9B60316C1D60468B0016C7C3 /* PhotoPickerBottomView.m in Sources */,
 				9B3EAD001D5DCE0A0079AE0E /* PhotoPickerCell.m in Sources */,
 				9B93409E1D5E07AC0039628D /* MainTableViewController.m in Sources */,
