@@ -148,7 +148,7 @@ UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 #pragma mark -- TakePhoto
 - (UIImage *)createTakePhotoImage {
-    return [UIImage imageNamed:@"add_picture"];
+    return [UIImage imageNamed:@"PhotoAsset.bundle/add_picture"];
 }
 
 - (void)doTakePhotoAction {
