@@ -18,7 +18,10 @@
 @end
 
 @implementation PhotoBrowserCell
-
+- (void)prepareForReuse {
+    _wVContrl = nil;
+    
+}
 #pragma mark - lazy load
 - (UIScrollView *)scrollView
 {
@@ -149,7 +152,7 @@
     }
     
     self.scrollView.zoomScale = 1;
-    self.scrollView.contentSize = frame.size;
+    self.scrollView.contentSize = CGSizeMake(frame.size.width - 20, frame.size.height);
     [self.scrollView scrollRectToVisible:self.bounds animated:NO];
     self.containerView.frame = frame;
     self.containerView.center = self.scrollView.center;
@@ -157,9 +160,13 @@
 }
 
 #pragma mark - 手势点击事件
-- (void)singleTapAction:(UITapGestureRecognizer *)singleTap
-{
-    if (self.singleTapCallBack) self.singleTapCallBack();
+- (void)singleTapAction:(UITapGestureRecognizer *)singleTap{
+    if (_wVContrl.navigationController.navigationBar.isHidden) {
+        [_wVContrl showNavBarAndBottomView];
+    }else {
+        [_wVContrl hideNavBarAndBottomView];
+    }
+
 }
 
 - (void)doubleTapAction:(UITapGestureRecognizer *)tap

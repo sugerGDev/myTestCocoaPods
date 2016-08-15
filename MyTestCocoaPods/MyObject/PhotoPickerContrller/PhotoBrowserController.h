@@ -11,9 +11,6 @@
 #import <Masonry/Masonry.h>
 
 
-#import "PhotoBrowserCell.h"
-#import "PhotoBrowserBottomView.h"
-
 UIKIT_EXTERN NSString* const PhotoBrowser_reuseIdentifier;
 
 /*!
@@ -23,7 +20,7 @@ UIKIT_EXTERN NSString* const PhotoBrowser_reuseIdentifier;
 
 @property (nonatomic, weak) NSArray<PHAsset *> *assets;
 
-@property (nonatomic, weak) NSMutableArray<PHAsset *> *arraySelectPhotos;
+@property (nonatomic, weak) NSMutableDictionary* pickPhotosDict;
 
 @property (nonatomic, assign) NSInteger selectIndex; //选中的图片下标
 
@@ -38,6 +35,12 @@ UIKIT_EXTERN NSString* const PhotoBrowser_reuseIdentifier;
 
 @interface PhotoBrowserController (NavButton)
 - (UIBarButtonItem *)createRightBarItem;
+- (void)changeNavRightBtnStatus;
+- (void)updateCountForConfirmBtn;
+
+- (void)showNavBarAndBottomView;
+- (void)hideNavBarAndBottomView;
+
 @end
 
 @interface PhotoBrowserController (BottomView)
@@ -46,6 +49,7 @@ UIKIT_EXTERN NSString* const PhotoBrowser_reuseIdentifier;
 
 @interface PhotoBrowserController (CV)
 - (void)regstCells;
+- (void)scrollViewToOffsetBySelectedPage;
 
 @end
 

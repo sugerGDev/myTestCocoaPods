@@ -23,4 +23,8 @@
     CGContextStrokePath(context);
 }
 
+-(IBAction)doTapConfirmAction:(id)sender {
+    
+}
+
 @end

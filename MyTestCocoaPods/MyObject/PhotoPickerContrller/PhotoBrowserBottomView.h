@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoBrowserBottomView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
 
 @end

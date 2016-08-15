@@ -30,7 +30,11 @@ NSString * const PhotoPicker_reuseIdentifier = @"PhotoPickerCell";
 
 @interface PhotoPickerController()
 <PHPhotoLibraryChangeObserver,PhotoPickerCellDelegate,
-UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
+    //判断是否第一次加载VC
+    BOOL _isFristLoadVContrl;
+    
+}
 
 @property (nonatomic, strong) NSMutableArray* dataSourceArray;
 @property (nonatomic, strong) NSMutableDictionary* pickedAssetDict;
@@ -41,6 +45,15 @@ UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 - (void)dealloc {
     [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (_isFristLoadVContrl == NO) {
+        _isFristLoadVContrl = YES;
+        return;
+    }
+    [self.collectionView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -289,7 +302,12 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
         PhotoBrowserController* browser =
         [[PhotoBrowserController alloc]initWithNibName:@"PhotoBrowserController"
                                                 bundle:[NSBundle bundleForClass:[self class]]];
+        browser.pickPhotosDict = self.pickedAssetDict;
         browser.assets = self.dataSourceArray;
+        browser.selectIndex = indexPath.row;
+        
+        browser.maxSelectCount = self.maxPickAssetNumber;
+        
         [self.navigationController pushViewController:browser animated:YES];
         
     }

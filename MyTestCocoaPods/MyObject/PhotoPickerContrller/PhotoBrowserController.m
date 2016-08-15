@@ -7,8 +7,12 @@
 //
 
 #import "PhotoBrowserController.h"
-#import "UIButton+Animation.h"
 
+#import "ZLPhotoTool.h"
+#import "PhotoBrowserCell.h"
+#import "PhotoBrowserBottomView.h"
+
+#import "UIButton+Animation.h"
 NSString* const PhotoBrowser_reuseIdentifier = @"PhotoBrowserCell";
 
 @interface PhotoBrowserController ()
@@ -24,16 +28,28 @@ NSString* const PhotoBrowser_reuseIdentifier = @"PhotoBrowserCell";
 
 @implementation PhotoBrowserController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self scrollViewToOffsetBySelectedPage];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self showNavBarAndBottomView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.collectionView.pagingEnabled = YES;
+    [self.collectionView setContentOffset:CGPointMake(-100.f, 0)];
     
+    //创建Right NavBar
     [self createBottomView];
     self.navigationItem.rightBarButtonItem = [self createRightBarItem];
     
     
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,12 +72,25 @@ NSString* const PhotoBrowser_reuseIdentifier = @"PhotoBrowserCell";
         [_dataSourceArray removeLastObject];
     }
     
-    //当前页
-    _currentPage = _dataSourceArray.count-self.selectIndex;
-    self.title = [NSString stringWithFormat:@"%ld/%ld", (long)_currentPage,
-                  (long)_dataSourceArray.count];
     [self regstCells];
 }
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    //改变导航标题
+    CGFloat page = scrollView.contentOffset.x/ w;
+    NSString *str = [NSString stringWithFormat:@"%.0f", page];
+    
+    _currentPage =  str.integerValue + 1;
+    
+    self.title = [NSString stringWithFormat:@"%ld/%ld", _currentPage, _dataSourceArray.count];
+    [self changeNavRightBtnStatus];
+    
+}
+
+
 
 @end
 
@@ -82,8 +111,71 @@ NSString* const PhotoBrowser_reuseIdentifier = @"PhotoBrowserCell";
 }
 
 - (void)navRightBtn_Click:(UIButton *)aSender {
+    
+    if ([_pickPhotosDict allKeys].count >= self.maxSelectCount
+        && aSender.selected == NO) {
+
+        NSLog(@"最多只能选择%ld张图片", self.maxSelectCount);
+        return;
+    }
+    
+    PHAsset *asset = _dataSourceArray[_currentPage-1];
+    if (NO == [self isHaveCurrentPageImage]) {
+        
+        if (NO == [[ZLPhotoTool sharePhotoTool] judgeAssetisInLocalAblum:asset]) {
+            NSLog(@"图片加载中，请稍后");
+            return;
+        }
+        
+        [_pickPhotosDict setObject:asset forKey:asset.localIdentifier];
+    } else {
+        [self removeCurrentPageImage];
+    }
+    
+    [self updateCountForConfirmBtn];
     aSender.selected = !aSender.selected;
     [aSender playSelectedAnimation];
+}
+
+
+- (void)changeNavRightBtnStatus
+{
+    if ([self isHaveCurrentPageImage]) {
+        _navRightBtn.selected = YES;
+    } else {
+        _navRightBtn.selected = NO;
+    }
+}
+#pragma mark - Style 
+- (void)showNavBarAndBottomView
+{
+    self.navigationController.navigationBar.hidden = NO;
+    [UIApplication sharedApplication].statusBarHidden = NO;
+    _bottomView.hidden = NO;
+}
+
+- (void)hideNavBarAndBottomView
+{
+    self.navigationController.navigationBar.hidden = YES;
+    [UIApplication sharedApplication].statusBarHidden = YES;
+    _bottomView.hidden = YES;
+}
+
+
+#pragma mark - Help
+- (BOOL)isHaveCurrentPageImage{
+    
+    PHAsset *sAsset = _dataSourceArray[_currentPage-1];
+    if ([_pickPhotosDict objectForKey:sAsset.localIdentifier]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)removeCurrentPageImage{
+    
+    PHAsset *sAsset = _dataSourceArray[_currentPage-1];
+    [_pickPhotosDict removeObjectForKey:sAsset.localIdentifier];
 }
 @end
 
@@ -102,9 +194,15 @@ NSString* const PhotoBrowser_reuseIdentifier = @"PhotoBrowserCell";
         make.left.bottom.right.equalTo(self.view);
         make.height.mas_equalTo(@40);
     }];
-    
+ 
+    [self updateCountForConfirmBtn];
 }
 
+- (void)updateCountForConfirmBtn {
+    NSString* str = [NSString stringWithFormat:@"确定(%ld)",[_pickPhotosDict allKeys].count];
+    [_bottomView.confirmBtn setTitle:str forState:UIControlStateNormal];
+
+}
 @end
 
 @implementation PhotoBrowserController (CV)
@@ -113,6 +211,16 @@ NSString* const PhotoBrowser_reuseIdentifier = @"PhotoBrowserCell";
     
     [self.collectionView registerClass:[PhotoBrowserCell class]
             forCellWithReuseIdentifier:PhotoBrowser_reuseIdentifier];
+}
+
+- (void)scrollViewToOffsetBySelectedPage {
+    
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    CGFloat x = (self.dataSourceArray.count - self.selectIndex) * w;
+    
+    CGPoint p = CGPointMake(x, 0);
+    [self.collectionView setContentOffset:p];
+    
 }
 
 
@@ -131,7 +239,7 @@ NSString* const PhotoBrowser_reuseIdentifier = @"PhotoBrowserCell";
     
     PHAsset *asset = _dataSourceArray[indexPath.row];
     cell.asset = asset;
-    
+    cell.wVContrl = self;
     return cell;
 }
 
@@ -156,7 +264,5 @@ NSString* const PhotoBrowser_reuseIdentifier = @"PhotoBrowserCell";
     }
     return self;
 }
-
-
 
 @end

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
+#import "PhotoBrowserController.h"
 
 @interface PhotoBrowserCell : UICollectionViewCell
 
 @property (nonatomic, strong) PHAsset *asset;
-@property (nonatomic, copy)   void (^singleTapCallBack)();
+@property (nonatomic , weak) PhotoBrowserController* wVContrl;
+
 @end
