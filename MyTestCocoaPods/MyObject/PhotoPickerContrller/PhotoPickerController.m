@@ -29,7 +29,8 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
 @end
 
 @interface PhotoPickerController()
-<PHPhotoLibraryChangeObserver,UINavigationControllerDelegate>
+<PHPhotoLibraryChangeObserver,PhotoPickerCellDelegate,
+UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray* dataSourceArray;
 @property (nonatomic, strong) NSMutableDictionary* pickedAssetDict;
@@ -118,6 +119,102 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
     });
 }
 
+#pragma mark -- PhotoPickerCellDelegate
+- (BOOL)isAllowPickTheCell:(__weak PhotoPickerCell *)aCell {
+    if (self.pickedAssetDict.count >= self.maxPickAssetNumber
+        && aCell.btnSelected.isPicked == NO) {
+        NSLog(@"已经超过当前的限制选择数量,不予操作");
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)isFinishPickTheCell:(__weak PhotoPickerCell *)aCell {
+    
+    PHAsset *asset = self.dataSourceArray[aCell.btnSelected.tag];
+    
+    if (NO == aCell.btnSelected.isPicked) { //添加图片到选中数组
+        [self.pickedAssetDict setObject:asset forKey:asset.localIdentifier];
+        
+    } else { //移除图片
+        [self.pickedAssetDict removeObjectForKey:asset.localIdentifier];
+    }
+    
+    //统计图片数量
+    [self cntPickNumByCellTapAction];
+    
+    return YES;
+}
+
+#pragma mark -- TakePhoto
+- (UIImage *)createTakePhotoImage {
+    return [UIImage imageNamed:@"add_picture"];
+}
+
+- (void)doTakePhotoAction {
+    
+    ZLPhotoTool* tool = [ZLPhotoTool sharePhotoTool];
+    BOOL isAuthority = [tool judgeIsHaveCameraAuthority];
+    
+    if (NO == isAuthority) {NSLog(@"没有访问摄像头权限"); return;}
+    
+    //拍照
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeCamera])
+    {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        //            picker.delegate = self;
+        picker.allowsEditing = NO;
+        picker.videoQuality = UIImagePickerControllerQualityTypeLow;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        __weak typeof(self) wself = self;
+        [self presentViewController:picker animated:YES completion:^{
+            picker.delegate = wself;
+        }];
+    }
+    
+}
+
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    
+    __weak typeof(self) wself = self;
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        UIImage *reImg = [wself scaleImage:image];
+        
+        [[ZLPhotoTool sharePhotoTool] saveImageToAblum:reImg completion:^(BOOL suc, PHAsset *asset) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (suc) {
+                    [self.pickedAssetDict setObject:asset forKey:asset.localIdentifier];
+                    
+                } else {
+                    NSLog(@"保存到相册失败");
+                }
+            });
+        }];
+        
+    }];
+}
+
+
+/**
+ * @brief 这里对拿到的图片进行缩放，不然原图直接返回的话会造成内存暴涨
+ */
+- (UIImage *)scaleImage:(UIImage *)image{
+    
+    CGFloat ScalePhotoWidth = 1000;
+    CGSize size = CGSizeMake(ScalePhotoWidth, ScalePhotoWidth * image.size.height / image.size.width);
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 @end
 
 @implementation PhotoPickerController (CV)
@@ -188,111 +285,6 @@ NSString * const reuseIdentifier = @"PhotoPickerCell";
     if ([asset isKindOfClass:[UIImage class]]) {
         [self doTakePhotoAction];
     }
-}
-
-@end
-
-
-@implementation PhotoPickerController(PPCD)
-
-- (BOOL)isAllowPickTheCell:(__weak PhotoPickerCell *)aCell {
-    if (self.pickedAssetDict.count >= self.maxPickAssetNumber
-        && aCell.btnSelected.isPicked == NO) {
-        NSLog(@"已经超过当前的限制选择数量,不予操作");
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)isFinishPickTheCell:(__weak PhotoPickerCell *)aCell {
-    
-    PHAsset *asset = self.dataSourceArray[aCell.btnSelected.tag];
-    
-    if (NO == aCell.btnSelected.isPicked) { //添加图片到选中数组
-        [self.pickedAssetDict setObject:asset forKey:asset.localIdentifier];
-        
-    } else { //移除图片
-        [self.pickedAssetDict removeObjectForKey:asset.localIdentifier];
-    }
-    
-    //统计图片数量
-    [self cntPickNumByCellTapAction];
-    
-    return YES;
-}
-
-@end
-
-
-@implementation PhotoPickerController (TP)
-
-
-- (UIImage *)createTakePhotoImage {
-    return [UIImage imageNamed:@"add_picture"];
-}
-
-- (void)doTakePhotoAction {
-    
-    ZLPhotoTool* tool = [ZLPhotoTool sharePhotoTool];
-    BOOL isAuthority = [tool judgeIsHaveCameraAuthority];
-    
-    if (NO == isAuthority) {NSLog(@"没有访问摄像头权限"); return;}
-    
-    //拍照
-    if ([UIImagePickerController isSourceTypeAvailable:
-         UIImagePickerControllerSourceTypeCamera])
-    {
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        //            picker.delegate = self;
-        picker.allowsEditing = NO;
-        picker.videoQuality = UIImagePickerControllerQualityTypeLow;
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        __weak typeof(self) wself = self;
-        [self presentViewController:picker animated:YES completion:^{
-            picker.delegate = wself;
-        }];
-    }
-    
-}
-
-
-#pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker
-didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    
-    __weak typeof(self) wself = self;
-    [picker dismissViewControllerAnimated:YES completion:^{
-        
-        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        UIImage *reImg = [wself scaleImage:image];
-        
-        [[ZLPhotoTool sharePhotoTool] saveImageToAblum:reImg completion:^(BOOL suc, PHAsset *asset) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (suc) {
-                    [self.pickedAssetDict setObject:asset forKey:asset.localIdentifier];
-                    
-                } else {
-                    NSLog(@"保存到相册失败");
-                }
-            });
-        }];
-        
-    }];
-}
-
-
-/**
- * @brief 这里对拿到的图片进行缩放，不然原图直接返回的话会造成内存暴涨
- */
-- (UIImage *)scaleImage:(UIImage *)image{
-    
-    CGFloat ScalePhotoWidth = 1000;
-    CGSize size = CGSizeMake(ScalePhotoWidth, ScalePhotoWidth * image.size.height / image.size.width);
-    UIGraphicsBeginImageContext(size);
-    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
 }
 
 @end

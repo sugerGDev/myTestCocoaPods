@@ -44,19 +44,6 @@ UIKIT_EXTERN NSString * const reuseIdentifier;
 - (void)regstCells;
 - (void)loadPhotoFromAlbum;
 @end
-
-/*!
- *  PhotoPickerCellDelegate
- */
-@interface PhotoPickerController (PPCD)@end
-
-/*!
- *  TakePhoto
- */
-@interface PhotoPickerController (TP)
-- (UIImage *)createTakePhotoImage;
-- (void)doTakePhotoAction ;
-@end
 /*!
  *  Bottom View
  */
