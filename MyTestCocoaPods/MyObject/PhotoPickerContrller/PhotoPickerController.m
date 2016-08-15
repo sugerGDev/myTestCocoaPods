@@ -322,7 +322,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     NSInteger cntNum = self.maxPickAssetNumber;
     
     _bottomView.countLbl.text =
-    [NSString stringWithFormat:@"%ld／%ld",curNum,cntNum];
+    [NSString stringWithFormat:@"%ld／%ld",(long)curNum,(long)cntNum];
 }
 
 @end
