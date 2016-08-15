@@ -7,7 +7,7 @@
 //
 
 #import "PhotoPickerController.h"
-NSString * const reuseIdentifier = @"PhotoPickerCell";
+NSString * const PhotoPicker_reuseIdentifier = @"PhotoPickerCell";
 
 @implementation PhotoPickerLayout
 
@@ -233,10 +233,10 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
 - (void)regstCells {
     
     NSBundle* b = [NSBundle bundleForClass:[self class]];
-    UINib* nib = [UINib nibWithNibName:reuseIdentifier bundle:b];
+    UINib* nib = [UINib nibWithNibName:PhotoPicker_reuseIdentifier bundle:b];
     
     [self.collectionView registerNib:nib
-          forCellWithReuseIdentifier:reuseIdentifier];
+          forCellWithReuseIdentifier:PhotoPicker_reuseIdentifier];
 }
 #pragma mark <UICollectionViewDataSource>
 
@@ -251,7 +251,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     PhotoPickerCell *cell =
-    [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+    [collectionView dequeueReusableCellWithReuseIdentifier:PhotoPicker_reuseIdentifier
                                               forIndexPath:indexPath];
     
     // Configure the cell
@@ -284,6 +284,14 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     PHAsset* asset = self.dataSourceArray[indexPath.row];
     if ([asset isKindOfClass:[UIImage class]]) {
         [self doTakePhotoAction];
+    }else{
+        
+        PhotoBrowserController* browser =
+        [[PhotoBrowserController alloc]initWithNibName:@"PhotoBrowserController"
+                                                bundle:[NSBundle bundleForClass:[self class]]];
+        browser.assets = self.dataSourceArray;
+        [self.navigationController pushViewController:browser animated:YES];
+        
     }
 }
 

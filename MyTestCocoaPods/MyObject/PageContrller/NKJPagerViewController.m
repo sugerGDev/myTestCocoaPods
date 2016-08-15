@@ -35,8 +35,8 @@
 #pragma mark - Initialize
 
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self defaultSettings];

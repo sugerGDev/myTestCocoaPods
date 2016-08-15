@@ -41,9 +41,6 @@
  */
 @interface PhotoPickerButton : UIButton
 @property (nonatomic , assign) BOOL isPicked;
-
-- (void)playSelectedAnimation;
-
 @end
 
 

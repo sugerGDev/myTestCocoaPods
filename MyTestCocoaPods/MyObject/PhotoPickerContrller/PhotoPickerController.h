@@ -14,8 +14,9 @@
 #import "ZLPhotoTool.h"
 #import "PhotoPickerCell.h"
 #import "PhotoPickerBottomView.h"
+#import "PhotoBrowserController.h"
 //cell identifier
-UIKIT_EXTERN NSString * const reuseIdentifier;
+UIKIT_EXTERN NSString * const PhotoPicker_reuseIdentifier;
 /*!
  *  图片挑选Layout
  */

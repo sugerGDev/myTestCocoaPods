@@ -7,6 +7,7 @@
 //
 
 #import "PhotoPickerCell.h"
+#import "UIButton+Animation.h"
 
 @implementation PhotoPickerCell
 
@@ -95,22 +96,6 @@
               [self setImage:img forState:UIControlStateNormal];
         });
     });
-   
-    
 }
-
-- (void)playSelectedAnimation {
-    
-    CAKeyframeAnimation* b = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-    b.values = @[@(1.0) ,@(1.4), @(0.9), @(1.15), @(0.95), @(1.02), @(1.0)];
-    b.duration = 0.7;
-    b.calculationMode = kCAAnimationCubic;
-    [self.layer addAnimation:b forKey:nil];
-
- 
-   
-    
-}
-
 @end
 
