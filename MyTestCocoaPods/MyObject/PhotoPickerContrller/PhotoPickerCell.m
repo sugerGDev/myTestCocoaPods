@@ -85,9 +85,9 @@
         
         NSString* imgName = nil;
         if (_isPicked) {
-            imgName = @"btn_selected";
+            imgName = @"PhotoAsset.bundle/btn_selected";
         }else {
-            imgName = @"btn_original_circle";
+            imgName = @"PhotoAsset.bundle/btn_original_circle";
         }
         UIImage* img = [UIImage imageNamed:imgName];
         

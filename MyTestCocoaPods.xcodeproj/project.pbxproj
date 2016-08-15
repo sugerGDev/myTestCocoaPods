@@ -22,12 +22,12 @@
 		9B3EAD001D5DCE0A0079AE0E /* PhotoPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EACFE1D5DCE0A0079AE0E /* PhotoPickerCell.m */; };
 		9B3EAD031D5DCE190079AE0E /* PhotoPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */; };
 		9B3EAD051D5DDC220079AE0E /* PhotoPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */; };
+		9B47E37A1D6197D9004DC926 /* PhotoAsset.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B47E3791D6197D9004DC926 /* PhotoAsset.bundle */; };
 		9B5CB6811D600F430035640A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5CB6801D600F430035640A /* QuartzCore.framework */; };
 		9B60316C1D60468B0016C7C3 /* PhotoPickerBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B60316B1D60468B0016C7C3 /* PhotoPickerBottomView.m */; };
 		9B60316E1D6046970016C7C3 /* PhotoPickerBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B60316D1D6046970016C7C3 /* PhotoPickerBottomView.xib */; };
 		9B7AED111D5C147400D574DC /* NKJPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AED101D5C147400D574DC /* NKJPagerViewController.m */; };
 		9B7AED141D5C15C900D574DC /* NKJPagerCtrlContrller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AED131D5C15C900D574DC /* NKJPagerCtrlContrller.m */; };
-		9B833D1E1D5FF6EE0002079B /* PhotoAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B833D1D1D5FF6EE0002079B /* PhotoAsset.xcassets */; };
 		9B93409E1D5E07AC0039628D /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B93409D1D5E07AC0039628D /* MainTableViewController.m */; };
 		9BCAB3E61D5C527D00B978A3 /* PagerSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCAB3E51D5C527D00B978A3 /* PagerSubViewController.m */; };
 		9BCAB3E91D5C53D300B978A3 /* PagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCAB3E81D5C53D300B978A3 /* PagerViewController.m */; };
@@ -57,6 +57,7 @@
 		9B3EACFE1D5DCE0A0079AE0E /* PhotoPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerCell.m; sourceTree = "<group>"; };
 		9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPickerCell.xib; sourceTree = "<group>"; };
 		9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPickerController.xib; sourceTree = "<group>"; };
+		9B47E3791D6197D9004DC926 /* PhotoAsset.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PhotoAsset.bundle; sourceTree = "<group>"; };
 		9B5CB6801D600F430035640A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9B60316A1D60468B0016C7C3 /* PhotoPickerBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerBottomView.h; sourceTree = "<group>"; };
 		9B60316B1D60468B0016C7C3 /* PhotoPickerBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerBottomView.m; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		9B7AED101D5C147400D574DC /* NKJPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKJPagerViewController.m; sourceTree = "<group>"; };
 		9B7AED121D5C15C900D574DC /* NKJPagerCtrlContrller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKJPagerCtrlContrller.h; sourceTree = "<group>"; };
 		9B7AED131D5C15C900D574DC /* NKJPagerCtrlContrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKJPagerCtrlContrller.m; sourceTree = "<group>"; };
-		9B833D1D1D5FF6EE0002079B /* PhotoAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoAsset.xcassets; sourceTree = "<group>"; };
 		9B93409C1D5E07AC0039628D /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		9B93409D1D5E07AC0039628D /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		9BCAB3E41D5C527D00B978A3 /* PagerSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerSubViewController.h; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 		9B3EACEA1D5DC4240079AE0E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9B833D1D1D5FF6EE0002079B /* PhotoAsset.xcassets */,
+				9B47E3791D6197D9004DC926 /* PhotoAsset.bundle */,
 				9B3EAD041D5DDC220079AE0E /* PhotoPickerController.xib */,
 				9B3EAD021D5DCE190079AE0E /* PhotoPickerCell.xib */,
 				9B60316D1D6046970016C7C3 /* PhotoPickerBottomView.xib */,
@@ -306,7 +306,7 @@
 				9B3E805D1D5B1B57009719F1 /* LaunchScreen.storyboard in Resources */,
 				9B3E805A1D5B1B57009719F1 /* Assets.xcassets in Resources */,
 				9B3EAD031D5DCE190079AE0E /* PhotoPickerCell.xib in Resources */,
-				9B833D1E1D5FF6EE0002079B /* PhotoAsset.xcassets in Resources */,
+				9B47E37A1D6197D9004DC926 /* PhotoAsset.bundle in Resources */,
 				9B3E80581D5B1B57009719F1 /* Main.storyboard in Resources */,
 				9B60316E1D6046970016C7C3 /* PhotoPickerBottomView.xib in Resources */,
 				9B3EAD051D5DDC220079AE0E /* PhotoPickerController.xib in Resources */,
